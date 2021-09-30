@@ -1,0 +1,257 @@
+@use "mixins";
+* {
+  box-sizing: border-box;
+}
+body {
+  @include mixins.margpadd0;
+}
+
+.header {
+  width: 100%;
+
+  ul {
+    @include mixins.margpadd0;
+    list-style: none;
+    overflow: hidden;
+  }
+  li a {
+    display: block;
+    padding: 10px 10px;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+  }
+  li a:hover,
+  .menu-btn:hover {
+    background-color: $menucolor;
+  }
+  li a:hover,
+  .menu-btn:hover {
+    background-color: $menucolor;
+  }
+  .menu {
+    max-height: 0;
+    transition: max-height 0.2s ease-out;
+  }
+  .menu-icon {
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
+    padding: 28px 20px;
+    position: relative;
+    user-select: none;
+    .navicon {
+      background: white;
+      display: block;
+      height: 3px;
+      position: relative;
+      transition: background 0.2s ease-out;
+      width: 20px;
+      border-radius: 3px;
+    }
+    .navicon:before,
+    .navicon:after {
+      background: white;
+      content: "";
+      display: block;
+      height: 100%;
+      position: absolute;
+      transition: all 0.2s ease-out;
+      width: 100%;
+      border-radius: 3px;
+    }
+    .navicon:before {
+      top: 5px;
+    }
+    .navicon:after {
+      top: -5px;
+    }
+    @include mixins.desktop-only {
+      .header {
+        li a {
+          padding: 20px 30px;
+          font-size: 14pt;
+        }
+        .menu {
+          clear: none;
+          max-height: none;
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-end;
+          width: 100%;
+        }
+        .menu-icon {
+          display: none;
+        }
+        li a:hover,
+        .menu-btn:hover {
+          background-color: #00000000;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  .menu-btn {
+    display: none;
+  }
+  .menu-btn:checked ~ .menu {
+    max-height: 240px;
+  }
+  .menu-btn:checked ~ .menu-icon .navicon {
+    background: transparent;
+  }
+  .menu-btn:checked ~ .menu-icon .navicon:before {
+    transform: rotate(-45deg);
+  }
+  .menu-btn:checked ~ .menu-icon .navicon:after {
+    transform: rotate(45deg);
+  }
+  .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+  .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+    top: 0;
+  }
+}
+
+.startpage {
+  height: 100vh;
+  background-image: url(../images/negative-space-black-forest-daw.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .flex-startpage {
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    right: 20%;
+    margin: 0 auto;
+    @include mixins.flexcenter;
+  }
+  .startpage-text {
+    @include mixins.flexcolumn;
+    text-align: center;
+    color: aliceblue;
+  }
+}
+
+.container-arrow {
+  @include mixins.flexcenter;
+  position: relative;
+  .arrow {
+    @include mixins.arrowbasestyle;
+    font-size: larger;
+    position: absolute;
+    top: 95vh;
+    background-color: rgba(255, 255, 255, 0.842);
+    color: rgb(83, 78, 78);
+  }
+  .arrow:hover .secondarrow:hover .fa:hover {
+    opacity: 0.7;
+  }
+}
+
+.about {
+  text-align: center;
+}
+.staff-container {
+  @include mixins.flexcolumn;
+  align-items: center;
+
+  @include mixins.desktop-only {
+    .staff-container {
+      flex-direction: row;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+    }
+  }
+}
+.personal {
+  @include mixins.flexcolumn;
+  align-items: center;
+  margin-bottom: 20px;
+
+  @include mixins.desktop-only {
+    .personal {
+      width: 40%;
+    }
+  }
+}
+.image-container {
+  width: 50%;
+}
+.img {
+  width: 100%;
+  border-radius: 50%;
+  box-shadow: black;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.description-staff {
+  @include mixins.flexcenter;
+  align-items: center;
+  background-color: lightgray;
+  border-radius: 5px;
+  width: 65%;
+  height: 150px;
+}
+.quote-icon {
+  font-size: 30pt;
+  font-weight: bold;
+}
+.text-staff {
+  text-align: left;
+  width: 70%;
+}
+.container-secondarrow {
+  @include mixins.flexcenter;
+  align-items: center;
+}
+.secondarrow {
+  @include mixins.arrowbasestyle;
+  background-color: black;
+  color: aliceblue;
+  margin-bottom: 20px;
+}
+
+.contact {
+  font-size: 14pt;
+  background-color: black;
+  color: white;
+  @include mixins.flexcolumn;
+  align-items: center;
+  justify-content: space-between;
+  @include mixins.desktop-only {
+    .contact {
+      height: 30vh;
+      justify-content: center;
+    }
+  }
+}
+.container-contact {
+  @include mixins.flexcolumn;
+  justify-content: space-between;
+
+  @include mixins.desktop-only {
+    .container-contact {
+      flex-direction: row;
+      justify-content: space-evenly;
+      width: 100%;
+    }
+  }
+}
+.social-media {
+  @include mixins.flexcolumn;
+  margin-top: 15px;
+}
+.fa {
+  text-align: left;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+.fa-instagram {
+  @include mixins.social-media-style;
+}
+.fa-twitter {
+  @include mixins.social-media-style;
+}
+.fa-facebook {
+  @include mixins.social-media-style;
+}

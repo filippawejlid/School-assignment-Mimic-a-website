@@ -1,0 +1,28 @@
+@use "variables";
+@mixin flexcenter {
+  display: flex;
+  justify-content: center;
+}
+@mixin flexcolumn {
+  display: flex;
+  flex-direction: column;
+}
+@mixin margpadd0 {
+  margin: 0;
+  padding: 0;
+}
+@mixin arrowbasestyle {
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+  width: 20px;
+}
+@mixin social-media-style {
+  background: black;
+  color: white;
+}
+@mixin desktop-only {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
