@@ -11,108 +11,103 @@ body {
 .header {
   width: 100%;
   background-color: $menucolor;
-
-  ul {
-    @include margpadd0;
-    list-style: none;
-    overflow: hidden;
+}
+ul {
+  @include margpadd0;
+  list-style: none;
+  overflow: hidden;
+}
+li a {
+  display: block;
+  padding: 10px 10px;
+  text-decoration: none;
+  text-align: center;
+  color: #faf3f3;
+  @include desktop-only {
+    padding: 20px 30px;
+    font-size: 14pt;
   }
-  li a {
-    display: block;
-    padding: 10px 10px;
-    text-decoration: none;
-    text-align: center;
-    color: #faf3f3;
+}
+li a:hover,
+.menu-btn:hover {
+  background-color: $menucolor;
+  @include desktop-only {
+    background-color: #00000000;
+    text-decoration: underline;
   }
-  li a:hover,
-  .menu-btn:hover {
-    background-color: $menucolor;
-  }
-  li a:hover,
-  .menu-btn:hover {
-    background-color: $menucolor;
-  }
-  .menu {
-    max-height: 0;
-    transition: max-height 0.2s ease-out;
-  }
-  .menu-icon {
-    cursor: pointer;
+}
+li a:hover,
+.menu-btn:hover {
+  background-color: $menucolor;
+}
+.menu {
+  max-height: 0;
+  transition: max-height 0.2s ease-out;
+  @include desktop-only {
+    clear: none;
+    max-height: none;
     display: flex;
+    flex-direction: row;
     justify-content: flex-end;
-    padding: 28px 20px;
-    position: relative;
-    user-select: none;
-    .navicon {
-      background: white;
-      display: block;
-      height: 3px;
-      position: relative;
-      transition: background 0.2s ease-out;
-      width: 20px;
-      border-radius: 3px;
-    }
-    .navicon:before,
-    .navicon:after {
-      background: white;
-      content: "";
-      display: block;
-      height: 100%;
-      position: absolute;
-      transition: all 0.2s ease-out;
-      width: 100%;
-      border-radius: 3px;
-    }
-    .navicon:before {
-      top: 5px;
-    }
-    .navicon:after {
-      top: -5px;
-    }
-    @include desktop-only {
-      .header {
-        li a {
-          padding: 20px 30px;
-          font-size: 14pt;
-        }
-        .menu {
-          clear: none;
-          max-height: none;
-          display: flex;
-          flex-direction: row;
-          justify-content: flex-end;
-          width: 100%;
-        }
-        .menu-icon {
-          display: none;
-        }
-        li a:hover,
-        .menu-btn:hover {
-          background-color: #00000000;
-          text-decoration: underline;
-        }
-      }
-    }
+    width: 100%;
   }
-  .menu-btn {
+}
+.menu-icon {
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+  padding: 28px 20px;
+  position: relative;
+  user-select: none;
+  @include desktop-only {
     display: none;
   }
-  .menu-btn:checked ~ .menu {
-    max-height: 240px;
+
+  .navicon {
+    background: white;
+    display: block;
+    height: 3px;
+    position: relative;
+    transition: background 0.2s ease-out;
+    width: 20px;
+    border-radius: 3px;
   }
-  .menu-btn:checked ~ .menu-icon .navicon {
-    background: transparent;
+  .navicon:before,
+  .navicon:after {
+    background: white;
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all 0.2s ease-out;
+    width: 100%;
+    border-radius: 3px;
   }
-  .menu-btn:checked ~ .menu-icon .navicon:before {
-    transform: rotate(-45deg);
+  .navicon:before {
+    top: 5px;
   }
-  .menu-btn:checked ~ .menu-icon .navicon:after {
-    transform: rotate(45deg);
+  .navicon:after {
+    top: -5px;
   }
-  .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
-  .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
-    top: 0;
-  }
+}
+.menu-btn {
+  display: none;
+}
+.menu-btn:checked ~ .menu {
+  max-height: 240px;
+}
+.menu-btn:checked ~ .menu-icon .navicon {
+  background: transparent;
+}
+.menu-btn:checked ~ .menu-icon .navicon:before {
+  transform: rotate(-45deg);
+}
+.menu-btn:checked ~ .menu-icon .navicon:after {
+  transform: rotate(45deg);
+}
+.menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+.menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+  top: 0;
 }
 
 .startpage {
@@ -139,17 +134,17 @@ body {
 .container-arrow {
   @include flexcenter;
   position: relative;
-  .arrow {
-    @include arrowbasestyle;
-    font-size: larger;
-    position: absolute;
-    top: 95vh;
-    background-color: rgba(255, 255, 255, 0.842);
-    color: rgb(83, 78, 78);
-  }
-  .arrow:hover .secondarrow:hover .fa:hover {
-    opacity: 0.7;
-  }
+}
+.arrow {
+  @include arrowbasestyle;
+  font-size: larger;
+  position: absolute;
+  top: 95vh;
+  background-color: rgba(255, 255, 255, 0.842);
+  color: rgb(83, 78, 78);
+}
+.arrow:hover {
+  opacity: 0.7;
 }
 
 .about {
@@ -209,6 +204,9 @@ body {
   color: aliceblue;
   margin-bottom: 20px;
 }
+.secondarrow:hover {
+  opacity: 0.7;
+}
 
 .contact {
   font-size: 14pt;
@@ -249,4 +247,7 @@ body {
 }
 .fa-facebook {
   @include social-media-style;
+}
+.fa:hover {
+  opacity: 0.7;
 }
