@@ -10,6 +10,7 @@ body {
 
 .header {
   width: 100%;
+  background-color: variables.$menucolor;
 
   ul {
     @include mixins.margpadd0;
@@ -159,11 +160,9 @@ body {
   align-items: center;
 
   @include mixins.desktop-only {
-    .staff-container {
-      flex-direction: row;
-      justify-content: space-evenly;
-      flex-wrap: wrap;
-    }
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
   }
 }
 .personal {
@@ -172,9 +171,7 @@ body {
   margin-bottom: 20px;
 
   @include mixins.desktop-only {
-    .personal {
-      width: 40%;
-    }
+    width: 40%;
   }
 }
 .image-container {
@@ -221,10 +218,8 @@ body {
   align-items: center;
   justify-content: space-between;
   @include mixins.desktop-only {
-    .contact {
-      height: 30vh;
-      justify-content: center;
-    }
+    height: 30vh;
+    justify-content: center;
   }
 }
 .container-contact {
@@ -232,11 +227,9 @@ body {
   justify-content: space-between;
 
   @include mixins.desktop-only {
-    .container-contact {
-      flex-direction: row;
-      justify-content: space-evenly;
-      width: 100%;
-    }
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
   }
 }
 .social-media {
