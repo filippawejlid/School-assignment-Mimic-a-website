@@ -1,4 +1,6 @@
+@use "variables";
 @use "mixins";
+
 * {
   box-sizing: border-box;
 }
@@ -23,11 +25,11 @@ body {
   }
   li a:hover,
   .menu-btn:hover {
-    background-color: $menucolor;
+    background-color: variables.$menucolor;
   }
   li a:hover,
   .menu-btn:hover {
-    background-color: $menucolor;
+    background-color: variables.$menucolor;
   }
   .menu {
     max-height: 0;
