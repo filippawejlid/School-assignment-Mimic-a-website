@@ -17,9 +17,6 @@ gulp.task("default", gulp.series("sass", "watch-scss"), function () {});
 gulp.task('minify', function(){
     return gulp.src('css/main.css')
         .pipe(cssnano())
-        .pipe(rename({
-            suffix: '.min'
-        }))
         .pipe(gulp.dest('css'))
 });
 
