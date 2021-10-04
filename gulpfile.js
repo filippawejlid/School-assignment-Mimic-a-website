@@ -1,6 +1,5 @@
 var gulp = require("gulp");
 var cssnano = require('gulp-cssnano');
-var rename = require('gulp-rename');
 var sass = require("gulp-sass");
 
 gulp.task('sass', function(){
@@ -22,5 +21,5 @@ gulp.task('minify', function(){
 
 gulp.task('watch', function(){
     gulp.watch('scss/*.scss', ['sass']);
-    gulp.watch('css/**/*.css', ['minify']);
+    gulp.watch('css/*.css', ['minify']);
 });
